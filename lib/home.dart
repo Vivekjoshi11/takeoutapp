@@ -51,7 +51,6 @@ class _HomeState extends State<Home> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -90,14 +89,14 @@ class _HomeState extends State<Home> {
             //     CategoryChip(label: 'Asian'),
             //   ],
             // ),.
-            const  CategoryChipsRow(),
+            const CategoryChipsRow(),
             const SizedBox(height: 16),
             Expanded(
               child: ListView(
                 children: const [
                   RestaurantCard(
                     imageUrl:
-                        'https://via.placeholder.com/400x200', // Replace with actual image URL
+                        'https://th.bing.com/th/id/OIP.jJI3bTJ-diLfKDHb9-vwmwHaE8?rs=1&pid=ImgDetMain', // Replace with actual image URL
                     name: 'Milkflower',
                     cuisine: 'Italian • Pizza',
                     deliveryTime: '12-15 min',
@@ -106,7 +105,7 @@ class _HomeState extends State<Home> {
                   ),
                   RestaurantCard(
                     imageUrl:
-                        'https://via.placeholder.com/400x200', // Replace with actual image URL
+                        'https://th.bing.com/th/id/OIP.2dhr5Ln6cMHIu9SmwE_uBgHaE7?w=3840&h=2559&rs=1&pid=ImgDetMain', // Replace with actual image URL
                     name: 'Roberta\'s',
                     cuisine: 'Italian • Pizza',
                     deliveryTime: '15-20 min',
@@ -119,43 +118,56 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.red,
-        selectedItemColor: Colors.blue, // Customize selected item color
-        unselectedItemColor: Colors.grey, // Customize unselected item color
-        // currentIndex: _selectedIndex,
-        // onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'cart',
-          ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.shopping_cart),
-          //   label: 'Cart',
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          color: Colors.red
+          // color: Colors.transparent,
+          // image: DecorationImage(
+          //   image: AssetImage('path/to/your/image.png'),
+          //   fit: BoxFit.fill,
           // ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_events),
-            label: 'Bag',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Bag',
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            _currentIndex.value = index;
-          });
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => _screens[index]),
-          );
-        },
+        ),
+        child: BottomNavigationBar(
+          // backgroundColor: Colors.red,
+          selectedItemColor: Colors.red, // Customize selected item color
+          unselectedItemColor: Colors.grey, // Customize unselected item color
+          // currentIndex: _selectedIndex,
+          // onTap: _onItemTapped,
+          
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'cart',
+            ),
+            // BottomNavigationBarItem(
+            //   icon: Icon(Icons.shopping_cart),
+            //   label: 'Cart',
+            // ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.emoji_events),
+              label: 'Bag',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Bag',
+            ),
+          ],
+                  // currentIndex: _selectedIndex,
+        
+          onTap: (index) {
+            setState(() {
+              _currentIndex.value = index;
+            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => _screens[index]),
+            );
+          },
+        ),
       ),
     );
   }

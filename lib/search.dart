@@ -15,6 +15,7 @@ final List<String> recentSearches = ['Sushi', 'Joe\'s Pizza', 'Chipotle', 'Burge
     return  Scaffold(
       appBar: AppBar(
         title: const Text('Search'),
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
